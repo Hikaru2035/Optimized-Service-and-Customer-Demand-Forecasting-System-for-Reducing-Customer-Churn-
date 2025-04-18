@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      height: 100vh;
+    }
+    .container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+    }
+    .left-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      flex-direction: column;
+      background: #23232a;
+      color: white;
+      padding: 20px;
+    }
+    .right-section {
+      width: 30%;
+      background: white;
+    }
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+      font-size: 24px;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .input-field {
+      width: 100%;
+      max-width: 550px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: none;
+      border-radius: 25px;
+      background: #ddd;
+      font-size: 24px;
+    }
+    .password-container {
+      position: relative;
+      width: 100%;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #555;
+      font-size: 20px;
+      user-select: none;
+    }
+    .login-btn {
+      width: 180px;
+      padding: 18px;
+      background: #00c853;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+    .login-btn:hover {
+      background: #00a647;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .left-section, .right-section {
+        width: 100%;
+      }
+      .input-field, .password-container {
+        width: 90%;
+        max-width: none;
+      }
+      .login-btn {
+        width: 90%;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <h2>Login to Your Account</h2>
+      <p>Login using company account</p>
+      <form action="/login" method="post">
+        <input type="email" class="input-field" name="email" placeholder="Email" required>
+        <div class="password-container">
+          <input type="password" class="input-field" id="password" name="password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword()"></span>
+        </div>
+        <button class="login-btn" type="submit">Sign In</button>
+      </form>
+    </div>
+    <div class="right-section"></div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      passwordField.type = passwordField.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
